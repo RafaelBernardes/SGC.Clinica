@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sgc-sql_server
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=786714a4-24af-4262-8a0a-ba10055c67be
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+
+volumes:
+  mssql_data: 
