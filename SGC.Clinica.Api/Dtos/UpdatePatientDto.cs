@@ -1,8 +1,6 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace SGC.Clinica.Api.Dtos
 {
-    public class AddPatientDto
+    public class UpdatePatientDto
     {
         public string Name { get; set; } = string.Empty;
         

@@ -15,6 +15,8 @@ namespace SGc.Clinica.Api.Helpers
                     DateTime.Now.Year - src.DateOfBirth.Year - 
                     (DateTime.Now.DayOfYear < src.DateOfBirth.DayOfYear ? 1 : 0)
                 ));
+            
+            CreateMap<UpdatePatientDto, Patient>();
         }
     }
 }

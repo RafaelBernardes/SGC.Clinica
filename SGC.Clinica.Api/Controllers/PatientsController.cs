@@ -47,5 +47,27 @@ namespace SGC.Clinica.Api.Controllers
             
             return Ok(patients);
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdatePatient(int id, [FromBody] UpdatePatientDto patient)
+        {
+            var command = new UpdatePatientCommand(id, patient);
+            var updatePatient = await _mediator.Send(command);
+
+            if(updatePatient == null)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletePatient(int id)
+        {
+            var command = new DeletePatientCommand(id);
+            await _mediator.Send(command);
+            return NoContent();
+        }
     }
 }

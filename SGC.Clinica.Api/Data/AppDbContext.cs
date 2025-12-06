@@ -1,12 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using SGC.Clinica.Api.Data.Interfaces;
 using SGC.Clinica.Api.Models;
 
-public class AppDbContext : DbContext
+namespace SGC.Clinica.Api.Data
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options), IApplicationDbContext
     {
+        public DbSet<Patient> Patients { get; set; }
+        public DbSet<Physioterapist> Physioterapists { get; set; }
     }
-
-    public DbSet<Patient> Patients { get; set; }
-    public DbSet<Physioterapist> Physioterapists { get; set; }
 }

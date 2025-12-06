@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SGC.Clinica.Api.Data;
 using SGC.Clinica.Api.Repositories.Interfaces;
 
 namespace SGC.Clinica.Api.Repositories
@@ -17,7 +18,6 @@ namespace SGC.Clinica.Api.Repositories
         public async Task<T> AddAsync(T entity, CancellationToken cancellationToken = default)
         {
             await _dbSet.AddAsync(entity);
-            await _context.SaveChangesAsync(cancellationToken);
             return entity;
         }
 
@@ -34,7 +34,6 @@ namespace SGC.Clinica.Api.Repositories
         public async Task UpdateAsync(T entity, CancellationToken cancellationToken = default)
         {
             _dbSet.Update(entity);
-            await _context.SaveChangesAsync(cancellationToken);
         }
 
         public async Task DeleteAsync(int id, CancellationToken cancellationToken = default)
@@ -43,7 +42,6 @@ namespace SGC.Clinica.Api.Repositories
             if (entity != null)
             {
                 _dbSet.Remove(entity);
-                await _context.SaveChangesAsync(cancellationToken);
             }
         }
     }
