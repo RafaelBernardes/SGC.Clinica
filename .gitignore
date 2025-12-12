@@ -52,3 +52,11 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Documentation and Guides (Local Development)
+# These files are for development guidance and should not be committed
+ANALISE_ARQUITETURAL.md
+FASE0_REFATORACAO.md
+GUIA_IMPLEMENTACAO_FASE2.1.md
+README_DOCUMENTACAO.md
+ROADMAP.md
