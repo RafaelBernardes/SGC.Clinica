@@ -3,7 +3,7 @@ using MediatR;
 using SGC.Clinica.Api.Application.Patients.Commands;
 using SGC.Clinica.Api.Data.Interfaces;
 using SGC.Clinica.Api.Domain.Events;
-using SGC.Clinica.Api.Models;
+using SGC.Clinica.Api.Domain.Models;
 using SGC.Clinica.Api.Repositories.Interfaces;
 
 namespace SGC.Clinica.Api.Application.Patients.Handlers
@@ -23,7 +23,7 @@ namespace SGC.Clinica.Api.Application.Patients.Handlers
 
         public async Task<Patient> Handle(AddPatientCommand request, CancellationToken cancellationToken)
         {
-            var patient = Patient.Create(request.PatientDto.Name, request.PatientDto.DateOfBirth);
+            var patient = Patient.Create(request.PatientDto.Name, request.PatientDto.DateOfBirth, request.PatientDto.Phone, request.PatientDto.Email, request.PatientDto.Occupation, request.PatientDto.Observations);
             
             await _patientRepository.AddAsync(patient, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);

@@ -1,8 +1,8 @@
 using AutoMapper;
 using MediatR;
+using SGC.Clinica.Api.Application.Patients.Dtos;
 using SGC.Clinica.Api.Application.Patients.Queries;
-using SGC.Clinica.Api.Dtos;
-using SGC.Clinica.Api.Models;
+using SGC.Clinica.Api.Domain.Models;
 using SGC.Clinica.Api.Repositories.Interfaces;
 
 namespace SGC.Clinica.Api.Application.Patients.Handlers

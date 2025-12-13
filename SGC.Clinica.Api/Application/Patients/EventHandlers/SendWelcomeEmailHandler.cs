@@ -1,7 +1,7 @@
 using MediatR;
 using SGC.Clinica.Api.Domain.Events;
 
-namespace SGC.Clinica.Api.Application.EventHandlers
+namespace SGC.Clinica.Api.Application.Patients.EventHandlers
 {
     public class SendWelcomeEmailHandler : INotificationHandler<PatientCreatedEvent>
     {

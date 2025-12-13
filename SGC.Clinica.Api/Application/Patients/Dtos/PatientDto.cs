@@ -1,4 +1,4 @@
-namespace SGC.Clinica.Api.Dtos
+namespace SGC.Clinica.Api.Application.Patients.Dtos
 {
     public class PatientDto
     {

@@ -1,8 +1,7 @@
-version: '3.8'
 services:
-  db:
+  sqlserver:
     image: mcr.microsoft.com/mssql/server:2019-latest
-    container_name: sgc-sql_server
+    container_name: sgc-clinica-db
     environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=786714a4-24af-4262-8a0a-ba10055c67be
@@ -10,6 +9,36 @@ services:
       - "1433:1433"
     volumes:
       - mssql_data:/var/opt/mssql
+    networks:
+      - sgc-network
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P '786714a4-24af-4262-8a0a-ba10055c67be' -Q 'SELECT 1' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  
+  api:
+    build:
+      context: ./SGC.Clinica.Api
+      dockerfile: Dockerfile
+    container_name: sgc-clinica-api
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://+:5000"
+      ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=SGCClinica;User=sa;Password=786714a4-24af-4262-8a0a-ba10055c67be;Encrypt=false;TrustServerCertificate=true;"
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    networks:
+      - sgc-network
+    restart: unless-stopped
 
 volumes:
   mssql_data: 
+
+networks:
+  sgc-network:
+    driver: bridge

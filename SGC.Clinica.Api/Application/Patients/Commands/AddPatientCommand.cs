@@ -1,6 +1,7 @@
 using MediatR;
-using SGC.Clinica.Api.Dtos;
-using SGC.Clinica.Api.Models;
+using SGC.Clinica.Api.Application.Patients.Dtos;
+using SGC.Clinica.Api.Domain.Models;
+
 
 namespace SGC.Clinica.Api.Application.Patients.Commands
 {

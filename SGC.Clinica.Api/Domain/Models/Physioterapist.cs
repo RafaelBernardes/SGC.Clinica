@@ -1,4 +1,4 @@
-namespace SGC.Clinica.Api.Models
+namespace SGC.Clinica.Api.Domain.Models
 {
     public class Physioterapist : Professional
     {

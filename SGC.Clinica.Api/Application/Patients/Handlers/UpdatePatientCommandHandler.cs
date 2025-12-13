@@ -2,7 +2,7 @@ using AutoMapper;
 using MediatR;
 using SGC.Clinica.Api.Data.Interfaces;
 using SGC.Clinica.Api.Domain.Events;
-using SGC.Clinica.Api.Models;
+using SGC.Clinica.Api.Domain.Models;
 using SGC.Clinica.Api.Repositories.Interfaces;
 
 namespace SGC.Clinica.Api.Application.Patients.Handlers
@@ -27,7 +27,7 @@ namespace SGC.Clinica.Api.Application.Patients.Handlers
             if(patientToUpdate == null)
                throw new KeyNotFoundException("Patient not found");
 
-            patientToUpdate.Update(request.PatientDto.Name, request.PatientDto.DateOfBirth);
+            patientToUpdate.Update(request.PatientDto.Name, request.PatientDto.DateOfBirth, request.PatientDto.Phone, request.PatientDto.Email, request.PatientDto.Occupation, request.PatientDto.Observations);
             
             await  _context.SaveChangesAsync(cancellationToken);
             await _mediator.Publish(new PatientUpdatedEvent(patientToUpdate), cancellationToken);

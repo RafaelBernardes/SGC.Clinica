@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using SGC.Clinica.Api.Models;
+using SGC.Clinica.Api.Domain.Models;
 
 namespace SGC.Clinica.Api.Data.Interfaces
 {

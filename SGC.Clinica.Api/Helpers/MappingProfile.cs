@@ -1,8 +1,8 @@
 namespace SGc.Clinica.Api.Helpers
 {
     using AutoMapper;
-    using SGC.Clinica.Api.Dtos;
-    using SGC.Clinica.Api.Models;
+    using SGC.Clinica.Api.Application.Patients.Dtos;
+    using SGC.Clinica.Api.Domain.Models;
 
     public class MappingProfile : Profile
     {

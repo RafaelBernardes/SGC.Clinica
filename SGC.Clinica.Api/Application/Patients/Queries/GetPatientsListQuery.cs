@@ -1,5 +1,5 @@
 using MediatR;
-using SGC.Clinica.Api.Dtos;
+using SGC.Clinica.Api.Application.Patients.Dtos;
 
 namespace SGC.Clinica.Api.Application.Patients.Queries
 {
