@@ -7,6 +7,8 @@ namespace SGC.Clinica.Api.Domain.Models
         public string Document { get; private set; } = string.Empty;
         public string Phone { get; private set; } = string.Empty;
         public bool Active { get; private set; } = true;
+        public DateTime CreatedAt { get; private set; }
+        public DateTime UpdatedAt { get; private set; }
 
         protected Professional(){}
 
@@ -16,6 +18,7 @@ namespace SGC.Clinica.Api.Domain.Models
             Document = document;
             Phone = phone;
             Active = true;
+            CreatedAt = DateTime.UtcNow;
         }
     }
 }

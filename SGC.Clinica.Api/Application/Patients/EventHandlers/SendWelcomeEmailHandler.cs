@@ -1,5 +1,5 @@
 using MediatR;
-using SGC.Clinica.Api.Domain.Events;
+using SGC.Clinica.Api.Domain.Events.Patients;
 
 namespace SGC.Clinica.Api.Application.Patients.EventHandlers
 {

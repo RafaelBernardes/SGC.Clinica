@@ -1,3 +1,5 @@
+using SGC.Clinica.Api.Repositories.Specifications;
+
 namespace SGC.Clinica.Api.Repositories.Interfaces
 {
     public interface IBaseRepository<T> where T : class
@@ -7,5 +9,8 @@ namespace SGC.Clinica.Api.Repositories.Interfaces
         Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default);
         Task UpdateAsync(T entity, CancellationToken cancellationToken = default);
         Task DeleteAsync(int id, CancellationToken cancellationToken = default);
+        Task<T?> FirstOrDefaultAsync(ISpecification<T> spec, CancellationToken cancellationToken = default);
+        Task<IEnumerable<T>> ListAsync(ISpecification<T> spec, CancellationToken cancellationToken = default);
+        Task<int> CountAsync(ISpecification<T> spec, CancellationToken cancellationToken = default);
     }
 }
