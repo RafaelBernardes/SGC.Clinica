@@ -1,4 +1,6 @@
-namespace SGC.Clinica.Api.Application.Appointment.Dtos
+using SGC.Clinica.Api.Domain.Enums;
+
+namespace SGC.Clinica.Api.Application.Schedules.Dtos
 {
     public class AppointmentDto
     {
@@ -10,7 +12,7 @@ namespace SGC.Clinica.Api.Application.Appointment.Dtos
         public DateTime ScheduledDate { get; set; }
         public TimeSpan Duration { get; set; }
         public string? Notes { get; set; }
-        public int Status { get; set; }
+        public AppointmentStatus Status { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public DateTime? CancelledAt { get; set; }

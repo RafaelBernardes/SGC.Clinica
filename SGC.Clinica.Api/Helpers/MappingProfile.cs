@@ -2,6 +2,7 @@ namespace SGc.Clinica.Api.Helpers
 {
     using AutoMapper;
     using SGC.Clinica.Api.Application.Patients.Dtos;
+    using SGC.Clinica.Api.Application.Schedules.Dtos;
     using SGC.Clinica.Api.Domain.Models;
 
     public class MappingProfile : Profile
@@ -17,6 +18,11 @@ namespace SGc.Clinica.Api.Helpers
                 ));
             
             CreateMap<UpdatePatientDto, Patient>();
+
+            // Schedules / Appointments
+            CreateMap<Appointment, AppointmentDto>()
+                .ForMember(dest => dest.PatientName, opt => opt.MapFrom(src => src.Patient.Name))
+                .ForMember(dest => dest.ProfessionalName, opt => opt.MapFrom(src => src.Professional.Name));
         }
     }
 }

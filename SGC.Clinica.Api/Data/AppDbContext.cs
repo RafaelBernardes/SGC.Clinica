@@ -8,6 +8,9 @@ namespace SGC.Clinica.Api.Data
     {
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Physioterapist> Physiotherapists { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<TimeSlot> TimeSlots { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

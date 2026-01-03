@@ -7,6 +7,9 @@ namespace SGC.Clinica.Api.Data.Interfaces
     {
         DbSet<Patient> Patients { get; set; }
         DbSet<Physioterapist> Physiotherapists { get; set; }
+        DbSet<Appointment> Appointments { get; set; }
+        DbSet<Schedule> Schedules { get; set; }
+        DbSet<TimeSlot> TimeSlots { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

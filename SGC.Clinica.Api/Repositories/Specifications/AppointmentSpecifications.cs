@@ -1,3 +1,4 @@
+using SGC.Clinica.Api.Domain.Enums;
 using SGC.Clinica.Api.Domain.Models;
 
 namespace SGC.Clinica.Api.Repositories.Specifications
@@ -35,6 +36,19 @@ namespace SGC.Clinica.Api.Repositories.Specifications
             AddInclude(a => a.Patient);
             AddInclude(a => a.Professional);
             AddOrderBy(a => a.ScheduledDate);
+        }
+    }
+
+    public class ConflictingAppointmentSpec : Specification<Appointment>
+    {
+        public ConflictingAppointmentSpec(int professionalId, DateTime proposedStartTime, DateTime proposedEndTime, int? appointmentIdToExclude = null)
+            : base(a =>
+                a.ProfessionalId == professionalId &&
+                (a.Status == AppointmentStatus.Pending || a.Status == AppointmentStatus.Confirmed) &&
+                a.ScheduledDate < proposedEndTime &&
+                a.ScheduledDate.Add(a.Duration) > proposedStartTime &&
+                (!appointmentIdToExclude.HasValue || a.Id != appointmentIdToExclude.Value))
+        {
         }
     }
 }

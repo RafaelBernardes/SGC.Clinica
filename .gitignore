@@ -53,6 +53,8 @@ CodeCoverage/
 TestResult.xml
 nunit-*.xml
 
+.vscode
+
 # Documentation and Guides (Local Development)
 # These files are for development guidance and should not be committed
 ANALISE_ARQUITETURAL.md
