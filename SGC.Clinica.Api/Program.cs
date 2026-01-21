@@ -1,13 +1,13 @@
 using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using SGc.Clinica.Api.Helpers;
+using SGC.Clinica.Api.Helpers;
 using SGC.Clinica.Api.Application.Behaviors;
-using SGC.Clinica.Api.Data;
-using SGC.Clinica.Api.Data.Interfaces;
-using SGC.Clinica.Api.Middleware;
-using SGC.Clinica.Api.Repositories;
-using SGC.Clinica.Api.Repositories.Interfaces;
+using SGC.Clinica.Api.Infrastructure.Persistence.Data;
+using SGC.Clinica.Api.Infrastructure.Persistence.Data.Interfaces;
+using SGC.Clinica.Api.Presentation.Middleware;
+using SGC.Clinica.Api.Infrastructure.Persistence.Repositories;
+using SGC.Clinica.Api.Infrastructure.Persistence.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

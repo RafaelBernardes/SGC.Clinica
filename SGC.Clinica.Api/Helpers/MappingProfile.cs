@@ -1,10 +1,10 @@
-namespace SGc.Clinica.Api.Helpers
-{
-    using AutoMapper;
-    using SGC.Clinica.Api.Application.Patients.Dtos;
-    using SGC.Clinica.Api.Application.Schedules.Dtos;
-    using SGC.Clinica.Api.Domain.Models;
+using AutoMapper;
+using SGC.Clinica.Api.Application.Patients.Dtos;
+using SGC.Clinica.Api.Application.Schedules.Dtos;
+using SGC.Clinica.Api.Domain.Models;
 
+namespace SGC.Clinica.Api.Helpers
+{
     public class MappingProfile : Profile
     {
         public MappingProfile()
