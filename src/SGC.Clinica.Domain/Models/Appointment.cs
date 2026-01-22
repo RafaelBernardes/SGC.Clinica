@@ -39,7 +39,7 @@ namespace SGC.Clinica.Api.Domain.Models
         private readonly List<IDomainEvent> _domainEvents = [];
         public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
 
-        public static Result Create(
+        public static Result<Appointment> Create(
             int patientId,
             int professionalId,
             DateTime scheduledDate,
@@ -54,51 +54,75 @@ namespace SGC.Clinica.Api.Domain.Models
             );
 
             if (validation.IsFailure)
-                return Result.Failure([.. validation.Errors]);
+                return Result<Appointment>.Failure([.. validation.Errors]);
 
             var appointment = new Appointment(patientId, professionalId, scheduledDate, duration, notes);
 
-            appointment.AddDomainEvent(new AppointmentScheduledEvent(patient.Id, patient.Name, patient.Email));
+            appointment.AddDomainEvent(new AppointmentScheduledEvent(appointment.PatientId, appointment.Patient.Name, appointment.Patient.Email, appointment.Professional.Name, appointment.ScheduledDate));
             
-            return Result<Patient>.Success(patient);
+            return Result<Appointment>.Success(appointment);
         }
 
-        public void Confirm()
+        public Result Confirm()
         {
-            if (Status == AppointmentStatus.Pending)
-            {
-                Status = AppointmentStatus.Confirmed;
-                UpdatedAt = DateTime.UtcNow;
-            }
+            var validation = ValidateConfirmation();
+
+            if (validation.IsFailure)
+                return Result.Failure([.. validation.Errors]);
+
+            Status = AppointmentStatus.Confirmed;
+            UpdatedAt = DateTime.UtcNow;
+
+            //TODO: Adicionar evento de domínio para confirmação de agendamento
+
+            return Result.Success();
         }
 
-        public void Cancel(string reason)
+        public Result Cancel(string reason)
         {
-            if (string.IsNullOrWhiteSpace(reason))
-                throw new ArgumentException("Motivo do cancelamento é obrigatório.");
+            var validation = ValidateCancellation(reason);
+
+            if (validation.IsFailure)
+                return Result.Failure([.. validation.Errors]);
 
             Status = AppointmentStatus.Cancelled;
             CancellationReason = reason;
             UpdatedAt = DateTime.UtcNow;
+
+            //TODO: Adicionar evento de domínio para cancelamento de agendamento
+
+            return Result.Success();
         }
 
-        public void Complete()
+        public Result Complete()
         {
-            if (Status != AppointmentStatus.Confirmed)
-                throw new InvalidOperationException("Apenas agendamentos confirmados podem ser concluídos.");
+            var validation = ValidateCompletion();
+
+            if (validation.IsFailure)
+                return Result.Failure([.. validation.Errors]);
 
             Status = AppointmentStatus.Completed;
             UpdatedAt = DateTime.UtcNow;
+
+            //TODO: Adicionar evento de domínio para conclusão de agendamento
+            return Result.Success();
         }
 
-        public void Reschedule(DateTime newDate)
+        public Result Reschedule(DateTime newDate)
         {
-            if (newDate <= DateTime.UtcNow)
-                throw new ArgumentException("Nova data deve ser futura.");
+            var validation = ValidationHelper.Validate(
+                ValidateReschedule(),
+                ValidateScheduleDate(newDate)
+            );
+
+            if (validation.IsFailure)
+                return Result.Failure([.. validation.Errors]);
 
             ScheduledDate = newDate;
             Status = AppointmentStatus.Rescheduled;
             UpdatedAt = DateTime.UtcNow;
+
+            return Result.Success();
         }
 
         public void MarkAsNoShow()
@@ -179,10 +203,44 @@ namespace SGC.Clinica.Api.Domain.Models
                 : Result.Success();
         }
 
-        private static Result ValidateDeactivation(bool isActive)
+        private Result ValidateConfirmation()
         {
-            if (!isActive)
-                return Result.Failure(new ValidationError("PatientInactive", "Paciente já está inativo"));
+            if (Status != AppointmentStatus.Pending)
+                return Result.Failure(new ValidationError("PatientInactive", "Apenas agendamentos pendentes podem ser confirmados"));
+
+            return Result.Success();
+        }
+
+        private Result ValidateCancellation(string reason)
+        {
+            if (string.IsNullOrWhiteSpace(reason))
+                return Result.Failure(new ValidationError("CancellationReasonRequired", "Motivo do cancelamento é obrigatório."));
+
+
+            if (Status == AppointmentStatus.Cancelled)
+                return Result.Failure(new ValidationError("AlreadyCancelled", "Agendamento já está cancelado"));
+
+            if (Status == AppointmentStatus.Completed)
+                return Result.Failure(
+                    new DomainError("AlreadyCompleted", "Agendamento já foi realizado"));
+
+            return Result.Success();
+        }
+
+        private Result ValidateCompletion()
+        {
+            if (Status != AppointmentStatus.Confirmed)
+                return Result.Failure(
+                    new DomainError("NotConfirmed", "Apenas agendamentos confirmados podem ser completados"));
+
+            return Result.Success();
+        }
+
+        private Result ValidateReschedule()
+        {
+            if (Status == AppointmentStatus.Cancelled || Status == AppointmentStatus.Completed)
+                return Result.Failure(
+                    new DomainError("NotConfirmed", "Apenas agendamentos ativos podem ser reagendados"));
 
             return Result.Success();
         }

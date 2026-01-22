@@ -111,7 +111,7 @@ namespace SGC.Clinica.Api.Domain.Models
 
         public Result Deactivate()
         {
-            var validation = ValidateDeactivation(Active);
+            var validation = ValidateDeactivation();
             if (validation.IsFailure)
                 return Result.Failure([.. validation.Errors]);
 
@@ -217,9 +217,9 @@ namespace SGC.Clinica.Api.Domain.Models
                 : Result.Success();
         }
 
-        private static Result ValidateDeactivation(bool isActive)
+        private Result ValidateDeactivation()
         {
-            if (!isActive)
+            if (!Active)
                 return Result.Failure(new ValidationError("PatientInactive", "Paciente já está inativo"));
 
             return Result.Success();
