@@ -1,6 +1,7 @@
-using Microsoft.EntityFrameworkCore;
+
 using SGC.Clinica.Api.Infrastructure.Persistence.Data.Interfaces;
 using SGC.Clinica.Api.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace SGC.Clinica.Api.Infrastructure.Persistence.Data
 {
