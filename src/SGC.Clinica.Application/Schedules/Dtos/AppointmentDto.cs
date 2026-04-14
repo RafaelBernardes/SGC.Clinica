@@ -1,6 +1,6 @@
-using SGC.Clinica.Api.Domain.Enums;
+using SGC.Clinica.Domain.Enums;
 
-namespace SGC.Clinica.Api.Application.Schedules.Dtos
+namespace SGC.Clinica.Application.Schedules.Dtos
 {
     public class AppointmentDto
     {
@@ -19,3 +19,4 @@ namespace SGC.Clinica.Api.Application.Schedules.Dtos
         public string? CancellationReason { get; set; }
     }
 }
+

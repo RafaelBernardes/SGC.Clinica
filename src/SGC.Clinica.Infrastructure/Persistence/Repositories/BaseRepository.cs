@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using SGC.Clinica.Api.Infrastructure.Persistence.Data;
-using SGC.Clinica.Api.Infrastructure.Persistence.Repositories.Interfaces;
-using SGC.Clinica.Api.Infrastructure.Persistence.Repositories.Specifications;
+using SGC.Clinica.Application.Abstractions.Persistence.Repositories;
+using SGC.Clinica.Application.Abstractions.Persistence.Specifications;
+using SGC.Clinica.Infrastructure.Persistence.Data;
+using SGC.Clinica.Infrastructure.Persistence.Repositories.Specifications;
 
-namespace SGC.Clinica.Api.Infrastructure.Persistence.Repositories
+namespace SGC.Clinica.Infrastructure.Persistence.Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {

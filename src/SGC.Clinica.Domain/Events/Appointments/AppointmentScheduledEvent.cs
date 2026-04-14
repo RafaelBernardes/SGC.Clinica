@@ -1,8 +1,6 @@
-using MediatR;
-
-namespace SGC.Clinica.Api.Domain.Events.Appointments
+namespace SGC.Clinica.Domain.Events.Appointments
 {
-    public record AppointmentScheduledEvent(int AppointmentId, string PatientName, string PatientEmail, string DoctorName, DateTime ScheduledDate) : INotification, IDomainEvent
+    public record AppointmentScheduledEvent(int AppointmentId, int PatientId, int ProfessionalId, DateTime ScheduledDate) : IDomainEvent
     {
         public DateTime OccurredOn { get; init; } = DateTime.UtcNow;
     }

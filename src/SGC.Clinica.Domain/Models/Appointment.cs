@@ -1,10 +1,10 @@
-using SGC.Clinica.Api.Domain.Enums;
-using SGC.Clinica.Api.Domain.Events;
-using SGC.Clinica.Api.Domain.Events.Appointments;
-using SGC.Clinica.Api.Domain.Helpers;
+using SGC.Clinica.Domain.Enums;
+using SGC.Clinica.Domain.Events;
+using SGC.Clinica.Domain.Events.Appointments;
+using SGC.Clinica.Domain.Helpers;
 using SGC.Clinica.Domain.Results;
 
-namespace SGC.Clinica.Api.Domain.Models
+namespace SGC.Clinica.Domain.Models
 {
     public sealed class Appointment
     {
@@ -58,7 +58,7 @@ namespace SGC.Clinica.Api.Domain.Models
 
             var appointment = new Appointment(patientId, professionalId, scheduledDate, duration, notes);
 
-            appointment.AddDomainEvent(new AppointmentScheduledEvent(appointment.PatientId, appointment.Patient.Name, appointment.Patient.Email, appointment.Professional.Name, appointment.ScheduledDate));
+            appointment.AddDomainEvent(new AppointmentScheduledEvent(appointment.Id, appointment.PatientId, appointment.ProfessionalId, appointment.ScheduledDate));
             
             return Result<Appointment>.Success(appointment);
         }

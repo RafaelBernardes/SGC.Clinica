@@ -1,10 +1,8 @@
-
-
 using System.Net;
 using System.Text.Json;
 using FluentValidation;
 
-namespace SGC.Clinica.Api.Presentation.Middleware
+namespace SGC.Clinica.API.Middleware
 {
     public class ExceptionHandlingMiddleware
     {

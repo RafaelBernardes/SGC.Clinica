@@ -1,11 +1,11 @@
 using FluentValidation;
-using SGC.Clinica.Api.Application.Schedules.Commands;
-using SGC.Clinica.Api.Domain.Models;
-using SGC.Clinica.Api.Infrastructure.Persistence.Repositories.Interfaces;
-using SGC.Clinica.Api.Infrastructure.Persistence.Repositories.Specifications;
-using AppointmentModel = SGC.Clinica.Api.Domain.Models.Appointment;
+using SGC.Clinica.Application.Schedules.Commands;
+using SGC.Clinica.Domain.Models;
+using SGC.Clinica.Application.Abstractions.Persistence.Repositories;
+using SGC.Clinica.Application.Abstractions.Persistence.Specifications;
+using AppointmentModel = SGC.Clinica.Domain.Models.Appointment;
 
-namespace SGC.Clinica.Api.Application.Schedules.Validators
+namespace SGC.Clinica.Application.Schedules.Validators
 {
     public class ScheduleAppointmentCommandValidator : AbstractValidator<ScheduleAppointmentCommand>
     {
@@ -71,3 +71,4 @@ namespace SGC.Clinica.Api.Application.Schedules.Validators
         }
     }
 }
+

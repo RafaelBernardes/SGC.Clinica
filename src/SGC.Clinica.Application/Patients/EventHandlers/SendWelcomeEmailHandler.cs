@@ -1,7 +1,7 @@
 using MediatR;
-using SGC.Clinica.Api.Domain.Events.Patients;
+using SGC.Clinica.Domain.Events.Patients;
 
-namespace SGC.Clinica.Api.Application.Patients.EventHandlers
+namespace SGC.Clinica.Application.Patients.EventHandlers
 {
     public class SendWelcomeEmailHandler : INotificationHandler<PatientCreatedEvent>
     {
@@ -14,7 +14,11 @@ namespace SGC.Clinica.Api.Application.Patients.EventHandlers
 
         public Task Handle(PatientCreatedEvent notification, CancellationToken cancellationToken)
         {
-            _logger.LogInformation($"[EVENTO DISPARADO] 📧 Enviando e-mail de boas-vindas para o paciente: {notification.Patient.Name}");
+            _logger.LogInformation(
+                "[EVENTO DISPARADO] Enviando e-mail de boas-vindas para o paciente: {PatientName} ({Email})",
+                notification.PatientName,
+                notification.Email);
+
             return Task.CompletedTask;
         }
     }

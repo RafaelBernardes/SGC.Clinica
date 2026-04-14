@@ -1,7 +1,7 @@
-namespace SGC.Clinica.Api.Application.Patients.Queries
+namespace SGC.Clinica.Application.Patients.Queries
 {
     using MediatR;
-    using SGC.Clinica.Api.Application.Patients.Dtos;
+    using SGC.Clinica.Application.Patients.Dtos;
 
     public record GetPatientByIdQuery(int Id) : IRequest<PatientDto?>;
 }

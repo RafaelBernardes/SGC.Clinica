@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace SGC.Clinica.Api.Migrations
+namespace SGC.Clinica.Infrastructure.Persistence.Migrations
 {
     /// <inheritdoc />
     public partial class ConfigInicialDasTabelasPacienteProfissionalEAgendamento : Migration

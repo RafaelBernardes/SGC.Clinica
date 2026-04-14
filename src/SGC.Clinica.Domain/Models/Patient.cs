@@ -1,9 +1,9 @@
-using SGC.Clinica.Api.Domain.Events;
-using SGC.Clinica.Api.Domain.Events.Patients;
-using SGC.Clinica.Api.Domain.Helpers;
+using SGC.Clinica.Domain.Events;
+using SGC.Clinica.Domain.Events.Patients;
+using SGC.Clinica.Domain.Helpers;
 using SGC.Clinica.Domain.Results;
 
-namespace SGC.Clinica.Api.Domain.Models
+namespace SGC.Clinica.Domain.Models
 {
     public sealed class Patient
     {

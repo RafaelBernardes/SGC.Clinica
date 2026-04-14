@@ -1,10 +1,10 @@
-Ôªøusing FluentValidation;
-using SGC.Clinica.Api.Application.Schedules.Commands;
-using SGC.Clinica.Api.Domain.Enums;
-using SGC.Clinica.Api.Repositories.Interfaces;
-using AppointmentModel = SGC.Clinica.Api.Domain.Models.Appointment;
+using FluentValidation;
+using SGC.Clinica.Application.Schedules.Commands;
+using SGC.Clinica.Domain.Enums;
+using SGC.Clinica.Application.Abstractions.Persistence.Repositories;
+using AppointmentModel = SGC.Clinica.Domain.Models.Appointment;
 
-namespace SGC.Clinica.Api.Application.Schedules.Validators
+namespace SGC.Clinica.Application.Schedules.Validators
 {
     public class CancelAppointmentCommandValidation : AbstractValidator<CancelAppointmentCommand>
     {
@@ -14,7 +14,7 @@ namespace SGC.Clinica.Api.Application.Schedules.Validators
             _appointmentRepository = appointmentRepository;
 
             RuleFor(x => x.AppointmentId).NotEmpty()
-            .MustAsync(AppointmentExistsAndIsActive).WithMessage("O agendamento especificado n√£o existe ou est√° inativo.");
+            .MustAsync(AppointmentExistsAndIsActive).WithMessage("O agendamento especificado n„o existe ou est· inativo.");
         }
 
         private async Task<bool> AppointmentExistsAndIsActive(int appointmentId, CancellationToken cancellationToken)
@@ -24,3 +24,4 @@ namespace SGC.Clinica.Api.Application.Schedules.Validators
         }
     }
 }
+

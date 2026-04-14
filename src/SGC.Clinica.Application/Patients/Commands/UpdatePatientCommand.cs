@@ -1,5 +1,5 @@
 using MediatR;
-using SGC.Clinica.Api.Application.Patients.Dtos;
-using SGC.Clinica.Api.Domain.Models;
+using SGC.Clinica.Application.Patients.Dtos;
+using SGC.Clinica.Domain.Models;
 
 public record UpdatePatientCommand(int Id, UpdatePatientDto PatientDto) : IRequest<Patient>;

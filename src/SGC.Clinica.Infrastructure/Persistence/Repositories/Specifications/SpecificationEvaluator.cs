@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using SGC.Clinica.Application.Abstractions.Persistence.Specifications;
 using System.Linq;
 
-namespace SGC.Clinica.Api.Infrastructure.Persistence.Repositories.Specifications
+namespace SGC.Clinica.Infrastructure.Persistence.Repositories.Specifications
 {
     public class SpecificationEvaluator<TEntity> where TEntity : class
     {

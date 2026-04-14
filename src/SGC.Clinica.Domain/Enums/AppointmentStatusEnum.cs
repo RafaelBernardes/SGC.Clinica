@@ -1,4 +1,4 @@
-namespace SGC.Clinica.Api.Domain.Enums
+namespace SGC.Clinica.Domain.Enums
 {
     public enum AppointmentStatus
     {

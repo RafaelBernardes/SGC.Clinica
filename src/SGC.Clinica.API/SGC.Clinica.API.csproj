@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SGC.Clinica.Domain\SGC.Clinica.Domain.csproj" />
     <ProjectReference Include="..\SGC.Clinica.Application\SGC.Clinica.Application.csproj" />
     <ProjectReference Include="..\SGC.Clinica.Infrastructure\SGC.Clinica.Infrastructure.csproj" />
   </ItemGroup>

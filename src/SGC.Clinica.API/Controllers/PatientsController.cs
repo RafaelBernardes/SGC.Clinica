@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
-using SGC.Clinica.Api.Application.Patients.Commands;
-using SGC.Clinica.Api.Application.Patients.Queries;
-using SGC.Clinica.Api.Application.Patients.Dtos;
+using SGC.Clinica.Application.Patients.Commands;
+using SGC.Clinica.Application.Patients.Queries;
+using SGC.Clinica.Application.Patients.Dtos;
 
-namespace SGC.Clinica.Api.Presentation.Controllers
+namespace SGC.Clinica.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

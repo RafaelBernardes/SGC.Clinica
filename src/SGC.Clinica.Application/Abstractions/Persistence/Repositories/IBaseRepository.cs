@@ -1,6 +1,6 @@
-using SGC.Clinica.Api.Infrastructure.Persistence.Repositories.Specifications;
+using SGC.Clinica.Application.Abstractions.Persistence.Specifications;
 
-namespace SGC.Clinica.Api.Infrastructure.Persistence.Repositories.Interfaces
+namespace SGC.Clinica.Application.Abstractions.Persistence.Repositories
 {
     public interface IBaseRepository<T> where T : class
     {
@@ -14,3 +14,4 @@ namespace SGC.Clinica.Api.Infrastructure.Persistence.Repositories.Interfaces
         Task<int> CountAsync(ISpecification<T> spec, CancellationToken cancellationToken = default);
     }
 }
+

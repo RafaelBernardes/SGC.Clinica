@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace SGC.Clinica.Api.Infrastructure.Persistence.Repositories.Specifications
+namespace SGC.Clinica.Application.Abstractions.Persistence.Specifications
 {
     public interface ISpecification<T>
     {
@@ -13,3 +13,4 @@ namespace SGC.Clinica.Api.Infrastructure.Persistence.Repositories.Specifications
         bool IsPagingEnabled { get; }
     }
 }
+

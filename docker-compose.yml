@@ -19,7 +19,7 @@ services:
   
   api:
     build:
-      context: ./SGC.Clinica.Api
+      context: ./src/SGC.Clinica.API
       dockerfile: Dockerfile
     container_name: sgc-clinica-api
     environment:

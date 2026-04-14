@@ -1,4 +1,4 @@
-namespace SGC.Clinica.Api.Domain.Events
+namespace SGC.Clinica.Domain.Events
 {
     public interface IDomainEvent
     {

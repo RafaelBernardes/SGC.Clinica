@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace SGC.Clinica.Api.Application.Schedules.Queries
+namespace SGC.Clinica.Application.Schedules.Queries
 {
     public record CheckAvailabilityQuery(long TimeSlotId) : IRequest<bool>;
 }

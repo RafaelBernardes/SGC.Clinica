@@ -1,9 +1,9 @@
 
-using SGC.Clinica.Api.Infrastructure.Persistence.Data.Interfaces;
-using SGC.Clinica.Api.Domain.Models;
+using SGC.Clinica.Application.Abstractions.Persistence;
+using SGC.Clinica.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace SGC.Clinica.Api.Infrastructure.Persistence.Data
+namespace SGC.Clinica.Infrastructure.Persistence.Data
 {
     public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options), IApplicationDbContext
     {

@@ -1,12 +1,12 @@
 using AutoMapper;
 using MediatR;
-using SGC.Clinica.Api.Data.Interfaces;
-using SGC.Clinica.Api.Domain.Events;
-using SGC.Clinica.Api.Domain.Events.Patients;
-using SGC.Clinica.Api.Domain.Models;
-using SGC.Clinica.Api.Repositories.Interfaces;
+using SGC.Clinica.Application.Abstractions.Persistence;
+using SGC.Clinica.Domain.Events;
+using SGC.Clinica.Domain.Events.Patients;
+using SGC.Clinica.Domain.Models;
+using SGC.Clinica.Application.Abstractions.Persistence.Repositories;
 
-namespace SGC.Clinica.Api.Application.Patients.Handlers
+namespace SGC.Clinica.Application.Patients.Handlers
 {
     public class UpdatePatientCommandHandler : IRequestHandler<UpdatePatientCommand, Patient>
     {

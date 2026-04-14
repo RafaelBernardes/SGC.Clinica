@@ -1,4 +1,4 @@
-namespace SGC.Clinica.Api.Application.Schedules.Dtos
+namespace SGC.Clinica.Application.Schedules.Dtos
 {
     public class CreateScheduleDto
     {
@@ -9,3 +9,4 @@ namespace SGC.Clinica.Api.Application.Schedules.Dtos
         public bool IsAvailable { get; set; }
     }
 }
+

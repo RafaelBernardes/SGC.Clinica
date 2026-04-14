@@ -1,11 +1,11 @@
 using AutoMapper;
 using MediatR;
-using SGC.Clinica.Api.Application.Patients.Dtos;
-using SGC.Clinica.Api.Application.Patients.Queries;
-using SGC.Clinica.Api.Domain.Models;
-using SGC.Clinica.Api.Repositories.Interfaces;
+using SGC.Clinica.Application.Patients.Dtos;
+using SGC.Clinica.Application.Patients.Queries;
+using SGC.Clinica.Domain.Models;
+using SGC.Clinica.Application.Abstractions.Persistence.Repositories;
 
-namespace SGC.Clinica.Api.Application.Patients.Handlers
+namespace SGC.Clinica.Application.Patients.Handlers
 {
     public class GetPatientByIdQueryHandler : IRequestHandler<GetPatientByIdQuery, PatientDto?>
     {

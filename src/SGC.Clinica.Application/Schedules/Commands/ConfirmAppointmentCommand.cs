@@ -1,7 +1,7 @@
 using MediatR;
-using SGC.Clinica.Api.Application.Schedules.Dtos;
+using SGC.Clinica.Application.Schedules.Dtos;
 
-namespace SGC.Clinica.Api.Application.Schedules.Commands
+namespace SGC.Clinica.Application.Schedules.Commands
 {
     public record ConfirmAppointmentCommand(int AppointmentId) : IRequest<AppointmentDto>;
 }

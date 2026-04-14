@@ -1,4 +1,4 @@
-namespace SGC.Clinica.Api.Domain.Models
+namespace SGC.Clinica.Domain.Models
 {
     public abstract class Professional
     {

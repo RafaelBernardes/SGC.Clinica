@@ -1,9 +1,6 @@
-using MediatR;
-using SGC.Clinica.Api.Domain.Models;
-
-namespace SGC.Clinica.Api.Domain.Events.Patients
+namespace SGC.Clinica.Domain.Events.Patients
 {
-    public record PatientUpdatedEvent(int PatientId, string PatientName, string Email) : INotification, IDomainEvent
+    public record PatientUpdatedEvent(int PatientId, string PatientName, string Email) : IDomainEvent
     {
         public DateTime OccurredOn => DateTime.UtcNow;
     }

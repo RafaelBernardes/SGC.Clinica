@@ -1,9 +1,10 @@
 using MediatR;
-using SGC.Clinica.Api.Application.Patients.Dtos;
-using SGC.Clinica.Api.Domain.Models;
+using SGC.Clinica.Application.Patients.Dtos;
+using SGC.Clinica.Domain.Models;
 
 
-namespace SGC.Clinica.Api.Application.Patients.Commands
+namespace SGC.Clinica.Application.Patients.Commands
 {
     public record AddPatientCommand(AddPatientDto PatientDto) : IRequest<Patient>;
 }
+

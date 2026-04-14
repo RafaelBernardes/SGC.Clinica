@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace SGC.Clinica.Api.Infrastructure.Persistence.Repositories.Specifications
+namespace SGC.Clinica.Application.Abstractions.Persistence.Specifications
 {
     public abstract class Specification<T> : ISpecification<T>
     {
@@ -40,3 +40,4 @@ namespace SGC.Clinica.Api.Infrastructure.Persistence.Repositories.Specifications
         }
     }
 }
+

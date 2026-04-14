@@ -1,7 +1,7 @@
 using FluentValidation;
 using MediatR;
 
-namespace SGC.Clinica.Api.Application.Behaviors
+namespace SGC.Clinica.Application.Behaviors
 {
     public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IRequest<TResponse>

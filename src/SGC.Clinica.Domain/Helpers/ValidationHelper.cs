@@ -1,6 +1,6 @@
 using SGC.Clinica.Domain.Results;
 
-namespace SGC.Clinica.Api.Domain.Helpers
+namespace SGC.Clinica.Domain.Helpers
 {
     public static class ValidationHelper
     {

@@ -1,13 +1,13 @@
 using AutoMapper;
 using MediatR;
-using SGC.Clinica.Api.Application.Schedules.Commands;
-using SGC.Clinica.Api.Application.Schedules.Dtos;
-using SGC.Clinica.Api.Domain.Events.Appointments;
-using SGC.Clinica.Api.Infrastructure.Persistence.Data.Interfaces;
-using SGC.Clinica.Api.Infrastructure.Persistence.Repositories.Interfaces;
-using AppointmentModel = SGC.Clinica.Api.Domain.Models.Appointment;
+using SGC.Clinica.Application.Schedules.Commands;
+using SGC.Clinica.Application.Schedules.Dtos;
+using SGC.Clinica.Domain.Events.Appointments;
+using SGC.Clinica.Application.Abstractions.Persistence;
+using SGC.Clinica.Application.Abstractions.Persistence.Repositories;
+using AppointmentModel = SGC.Clinica.Domain.Models.Appointment;
 
-namespace SGC.Clinica.Api.Application.Schedules.Handlers
+namespace SGC.Clinica.Application.Schedules.Handlers
 {
     public class ScheduleAppointmentCommandHandler : IRequestHandler<ScheduleAppointmentCommand, AppointmentDto>
     {
@@ -47,3 +47,4 @@ namespace SGC.Clinica.Api.Application.Schedules.Handlers
         }
     }
 }
+

@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SGC.Clinica.Api.Domain.Models;
+using SGC.Clinica.Domain.Models;
 
-namespace SGC.Clinica.Api.Infrastructure.Persistence.Data.Configurations
+namespace SGC.Clinica.Infrastructure.Persistence.Data.Configurations
 {
     /// <summary>
     /// Configuração de mapeamento para a entidade Schedule

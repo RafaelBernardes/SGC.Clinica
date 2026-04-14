@@ -1,5 +1,5 @@
 
-namespace SGC.Clinica.Api.Application.Patients.Dtos
+namespace SGC.Clinica.Application.Patients.Dtos
 {
     public class AddPatientDto
     {
@@ -11,3 +11,4 @@ namespace SGC.Clinica.Api.Application.Patients.Dtos
         public string Observations { get; set; } = string.Empty;
     }
 }
+

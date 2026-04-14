@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace SGC.Clinica.Api.Application.Patients.Validators
+namespace SGC.Clinica.Application.Patients.Validators
 {
     public class UpdatePatientCommandValidator : AbstractValidator<UpdatePatientCommand>
     {
